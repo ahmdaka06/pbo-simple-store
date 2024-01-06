@@ -4,13 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?= $config['app']['name'] ?></title>
+    <title>Instalasi</title>
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
     <meta name="theme-color" content="#712cf9">
 
     <!-- Custom styles for this template -->
-    <link href="<?= $base_url ?>assets/css/style.css" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" crossorigin="anonymous"></script>
     <style>
         a.badge {
@@ -22,7 +21,7 @@
     <main class="container">
         <nav class="navbar navbar-expand-md navbar-dark bg-dark mb-4">
             <div class="container">
-                <a class="navbar-brand" href="#">PBO SIMPLE STORE</a>
+                <a class="navbar-brand" href="#">INSTALL</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
                     aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -62,6 +61,8 @@
                             } else {
                                 print "<li>Database " .$db_name. " berhasil di pilih</li>";
                             }
+                            
+                            ## START IMPORT DATABASE ##
                             // Temporary variable, used to store current query
                             $templine = '';
                             // Read in entire file
@@ -80,6 +81,8 @@
                                     $templine = '';
                                 }
                             }
+                            ## END IMPORT DATABASE ##
+
                             print "Table berhasil di import <br />";
                             $mysqli->query("INSERT INTO `users` (`name`, `username`, `password`, `role`, `created_at`, `updated_at`) VALUES ('Administrator', '$username', '$password', 'admin', '$datetime', NULL)");
                             print "<b>Data Login</b> <br />";
