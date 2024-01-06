@@ -14,12 +14,11 @@ class Database {
                 die("Kesalahan Pada Server" . $this->conn->errno);
             }
         } catch (mysqli_sql_exception $e) { // catch mysqli exception
-            if ($e->getCode() == 1049) { // check exception code
+            if ($e->getCode() == 1049) { // check exception code and if code 1049 redirect to not-install.php
                 redirect('not-install.php'); // redirect to not-install.php
             } else {
-                die("Kesalahan Pada Server" . $e->getMessage());
+                die("Kesalahan Pada Server" . $e->getMessage()); // print error message
             }
-           
         }
     }
 

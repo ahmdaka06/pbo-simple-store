@@ -61,7 +61,7 @@
                             } else {
                                 print "<li>Database " .$db_name. " berhasil di pilih</li>";
                             }
-                            
+
                             ## START IMPORT DATABASE ##
                             // Temporary variable, used to store current query
                             $templine = '';
@@ -90,7 +90,11 @@
                             print "Password : admin <br />";
                             print "Aplikasi berhasil di install silahkan klik <a href='index.php'>disini</a>";
                         } catch (\Throwable $e) {
-                            print $e->getMessage();
+                            if (preg_match('/already exists/i', $e->getMessage())) {
+                                print 'Aplikasi sudah terinstall silahkan klik <a href="index.php">disini</a>';
+                            } else {
+                                print $e->getMessage() . '<br />';
+                            }
                         }
                     ?>
                     </pre>
