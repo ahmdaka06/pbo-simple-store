@@ -46,7 +46,7 @@ $user_id = $_SESSION['user']['id']; // get user id from session user
                         <?php 
                         // query product 
                         $no = 1;
-                        $query_order = $database->query("SELECT orders.*, product.name, product.price FROM orders, product WHERE user_id = $user_id AND product_id = product.id ORDER BY id DESC");
+                        $query_order = $orderClass->getOrderByUserId($user_id);
                         while ($order = $query_order->fetch_assoc()) {
                         ?>
                             <tr>

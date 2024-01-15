@@ -10,7 +10,7 @@ if (isset($_POST['submit'])) {
     $password = $_POST['password'];
 
     // query check customer
-    $check = $database->query("SELECT * FROM users WHERE `username` = '$username' AND `role` = 'customer' LIMIT 1");
+    $check = $userClass->login($username, 'customer');
 
     if ($check->num_rows > 0) { // check if customer exists
         $user = $check->fetch_assoc(); // fetch data user

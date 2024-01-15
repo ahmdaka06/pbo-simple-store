@@ -39,12 +39,12 @@
                     <pre>
                     <?php
                         try {
-                            $db_name = 'simple_store_native_v2';
-                            $db_host = 'localhost';
-                            $db_username = 'root';
-                            $db_password = '';
-                            $username = 'admin';
-                            $password = password_hash('admin', PASSWORD_DEFAULT);
+                            $db_name = 'simple_store_native'; // set database name
+                            $db_host = 'localhost'; // set database host
+                            $db_username = 'root'; // set database username
+                            $db_password = ''; // set database password
+                            $username = 'admin'; // set username admin
+                            $password = 'admin'; // set password admin
                             $datetime = date('Y-m-d H:i:s');
                             $mysqli = new mysqli($db_host, $db_username, $db_password);
                             $query = "CREATE DATABASE IF NOT EXISTS " . $db_name;
@@ -84,10 +84,10 @@
                             ## END IMPORT DATABASE ##
 
                             print "Table berhasil di import <br />";
-                            $mysqli->query("INSERT INTO `users` (`name`, `username`, `password`, `role`, `created_at`, `updated_at`) VALUES ('Administrator', '$username', '$password', 'admin', '$datetime', NULL)");
+                            $mysqli->query("INSERT INTO `users` (`name`, `username`, `password`, `role`, `created_at`, `updated_at`) VALUES ('Administrator', '$username', '" .password_hash($password, PASSWORD_DEFAULT). "', 'admin', '$datetime', NULL)");
                             print "<b>Data Login</b> <br />";
-                            print "Username : admin <br />";
-                            print "Password : admin <br />";
+                            print "Username : $username <br />";
+                            print "Password : $admin <br />";
                             print "Aplikasi berhasil di install silahkan klik <a href='index.php'>disini</a>";
                         } catch (\Throwable $e) {
                             if (preg_match('/already exists/i', $e->getMessage())) {

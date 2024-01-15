@@ -8,7 +8,7 @@ include 'layouts/header.php';
     <div class="col-md-12">
         <div class="bg-body-tertiary p-5 rounded">
             <h1>Simple Store With PHP Native</h1>
-            <p class="lead">Belajarlah hingga menjadi wong tulus tampil keri.</p>
+            <p class="lead">Jangan lupa checkout yaaa.</p>
         </div>
     </div>
 </div>
@@ -16,7 +16,7 @@ include 'layouts/header.php';
 <div class="row justify-content-center">
     <?php
     // query product
-    $products = $database->query("SELECT * FROM product ORDER BY id DESC");
+    $products = $productClass->getAll();
 
     // loop
     while($product = $products->fetch_assoc()) {

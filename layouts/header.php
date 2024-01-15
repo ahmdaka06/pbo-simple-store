@@ -22,5 +22,5 @@
 <body>
 
     <?php include 'navbar.php' ?>
-
-    <main class="container">
+    <div class="content pt-5 bg-pattern">
+        <main class="container">

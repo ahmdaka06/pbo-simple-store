@@ -30,8 +30,8 @@ if (isset($_POST['submit'])) {
     $user_id = $_SESSION['user']['id']; // get user id from user id
     $invoice = time(); // generate invoice 
     
-    // query insert order
-    $insert_order = $database->query("INSERT INTO `orders`(`user_id`, `product_id`, `invoice`, `address`, `created_at`) VALUES ('$user_id','$product_id','$invoice','$address','$datetime')");
+    // insert order with method insertOrder from class order
+    $insert_order = $orderClass->insertOrder($user_id, $product_id, $invoice, $address, $datetime);
 
     if ($insert_order) { // if success insert order
         alert('Berhasil melakukan pesanan');

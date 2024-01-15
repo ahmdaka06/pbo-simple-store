@@ -2,6 +2,13 @@
 /* body {
   min-height: 75rem;
 } */
+:root {
+    --navbar-bg: #d85353;
+}
+
+body {
+    background-color: #faeaea;
+}
 
 .bd-placeholder-img {
     font-size: 1.125rem;
@@ -78,4 +85,22 @@
 
 .bd-mode-toggle .dropdown-menu .active .bi {
     display: block !important;
+}
+
+.navbar {
+    position: relative;
+    z-index: 999;
+    box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .15);
+    background: var(--navbar-bg);
+    padding: .7rem 0rem;
+    font-weight: bold;
+}
+
+.navbar-nav {
+    color: #fff;
+}
+
+main.container {
+    margin-top: 50px;
+    z-index: 1;
 }

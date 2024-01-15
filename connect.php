@@ -41,9 +41,21 @@ $datetime = date('Y-m-d');
 $date = date('Y-m-d');
 $time = date('H:i:s');
 
-require_once 'class/database.php';
+require_once 'class/database.php'; // include class database
+ 
+$database = new Database($config['db']['host'], $config['db']['user'], $config['db']['password'], $config['db']['database']); // create object database
 
-$database = new Database($config['db']['host'], $config['db']['user'], $config['db']['password'], $config['db']['database']);
+// include class product
+require_once 'class/product.php';
+$productClass = new Product($database); // create object product
+
+// include class user
+require_once 'class/user.php';
+$userClass = new User($database); // create object user
+
+// include class order
+require_once 'class/order.php';
+$orderClass = new Order($database); // create object order
 
 
 
